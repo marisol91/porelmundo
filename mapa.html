@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa Interactivo sin Google</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h3 class="title">Besos por el Mundo</h3>
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script type="module" src="script.js"></script>
+  <script type="module">
+    import { supabase } from './supabaseClient.js';
+    window.supabase = supabase; // Asegúrate de que supabase esté disponible globalmente
+  </script>
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <form id="image-form">
+        <div class="form-spacing drop-area" id="drop-area">
+          Arrastra una imagen aquí o selecciona una imagen:
+          <input type="file" id="image-file" accept="image/*">
+          <span id="drag-confirmation" class="drag-confirmation">Imagen arrastrada y lista para subir</span>
+        </div>
+        <div class="form-spacing">
+          <label for="image-description">Descripción:</label>
+          <textarea id="image-description" name="image-description" rows="3" cols="40"></textarea>
+        </div>
+        <div class="form-spacing">
+          <label for="image-date">Fecha:</label>
+          <input type="date" id="image-date" name="image-date">
+        </div>
+        <input type="submit" value="Subir">
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+
