@@ -38,6 +38,6 @@ document.getElementById('login-form').addEventListener('submit', function(event)
         })
         .catch((error) => {
             const errorMessage = error.message;
-            document.getElementById('auth-message').textContent = `Error: ${errorMessage}`;
+            document.getElementById('auth-message').textContent = `Error: No te acuerdas de tu contraseña`;
         });
 });
